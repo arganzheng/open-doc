@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		
+		<meta name="author" content="arganzheng">
+		<title>腾讯电商开放平台</title>
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+	</head>
+
+	<body>
+		<!-- navigation area -->
+		<div class="navbar navbar-static-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			        </button>
+					<a class="brand" href="#">腾讯电商开放平台</a>
+					
+					<form method="get" action="http://www.google.com/search" class="navbar-search pull-right">
+			            <input type="text" name="q" class="span4 search-query" placeholder="请输入你想要搜索的内容" maxlength="255" value="">
+			        </form>
+
+					<ul class="nav">
+						<li><a href="/doc" class="active">文档</a></li>
+						<li><a href="/api">API</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="icon-th-large"></i>SDK下载<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Java</a></li>
+								<li><a href="#">C#</a></li>
+								<li><a href="#">PHP</a></li>
+							</ul>
+						</li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div><!-- End navigation area -->
+
+		<div class="container-fluid">
+			
+			<!-- main area-->
+			<div class="row-fluid" >
+				<!-- left sidebar ared-->
+				<div class="span3" >
+					<div class="well sidebar-nav" style="min-width: 150px;">
+				        <ul class="nav nav-list"> 
+				            <li class="tree">
+				            	<a href="#" class="tree-toggler"><span>▸</span>平台介绍</a>
+				                <ul class="nav nav-list">
+				                    <li><a href="/doc/effective-debug-with-tomcat">平台简介</a></li>
+				                    <li><a href="#">开放业务</a></li>
+				                    <li><a href="#">盈利模式</a></li>
+				                </ul>
+				            </li>
+				            <li class="tree">
+				            	<a href="#"  class="tree-toggler"><span>▸</span>开发文档</a>
+				                <ul class="nav nav-list">
+				                    <li class="tree"><a href="#" class="tree-toggler"><span>▸</span>开发核心技术</a>
+				                        <ul class="nav nav-list">
+				                            <li><a href="/doc/run-shell-on-remote-server">应用环境介绍</a></li>
+				                            <li><a href="#">用户授权介绍</a></li>
+				                            <li><a href="#">API调用方式介绍</a></li>
+				                            <li><a href="#">SDK相应说明文档</a></li>
+				                        </ul>
+				                    </li>
+				                </ul>
+				            </li>
+				        </ul>
+				    </div>
+				</div><!-- End left sidebar ared-->
+				<!-- right content ared-->
+				<div class="span9">
+					
+					<!-- article content -->
+					<%= yield %>
+
+				</div><!-- End right content ared-->
+			</div><!-- End main area-->			
+
+			<!-- copyright area -->				    
+		    <hr>
+		    <div class="footer">
+		    	<p>&copy; 2013 by arganzheng@gmail.com</p>
+		    </div>
+		</div>
+
+		<!-- Load JS  -->
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="http://timeago.yarp.com/jquery.timeago.js"></script>
+		<script src="/bootstrap/js/bootstrap.js"></script>
+  		<script type="text/javascript" src="/js/blog.js"></script>
+	</body>
+</html>
