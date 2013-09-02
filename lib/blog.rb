@@ -41,22 +41,29 @@ class Blog < Sinatra::Base
     erb :index, :layout => :'layout/layout'
   end
 
-  get %r{/doc/([\w[_/-]?]+)?[/]?} do | page|
-    if(page.end_with?("/"))
+
+  get %r{/doc/?([\w[_/-]?]+)?[/]?} do | page|
+    if(page.nil?)
+      page = "__init__"
+    elsif(page.end_with?("/"))
       page = page.chop;
     end
 
     file = File.join(settings.root, "articles", page + ".md")
-    if(File.exists?(file))
+    if(not File.exists?(file)) # not exist, could be path/__init__.md
+      file = File.join(settings.root, "articles", page, "__init__.md")      
+    end
+
+    if(File.exists?(file)) 
       meta, content   = File.read(file, :encoding => "utf-8").split("\n\n", 2)
       article         = OpenStruct.new YAML.load(meta)
       article.date    = Time.parse article.date.to_s
       article.content = content
       article.slug    = File.basename(file, '.md')
-  
+
       erb :article, :locals => { :article => article }, :layout => :'layout/post'
     else
-      logger.error "404" + file
+      logger.error "404: " + page + " not found!"
       raise error(404)
     end
   end
