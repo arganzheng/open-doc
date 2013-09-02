@@ -16,40 +16,8 @@
 
 	<body>
 		<!-- navigation area -->
-		<div class="navbar navbar-static-top">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			        </button>
-					<a class="brand" href="/">腾讯电商开放平台</a>
-					
-					<form method="get" action="http://www.google.com/search" class="navbar-search pull-right">
-			            <input type="text" name="q" class="span4 search-query" placeholder="请输入你想要搜索的内容" maxlength="255" value="">
-			        </form>
-
-					<ul class="nav">
-						<li><a href="/doc" class="active">文档</a></li>
-						<li><a href="/api">API</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<i class="icon-th-large"></i>SDK下载<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Java</a></li>
-								<li><a href="#">C#</a></li>
-								<li><a href="#">PHP</a></li>
-							</ul>
-						</li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-					
-				</div>
-			</div>
-		</div><!-- End navigation area -->
+		<%= partial :navbar %>
+		<!-- End navigation area -->
 
 		<div class="container-fluid">
 			
@@ -68,10 +36,8 @@
 			</div><!-- End main area-->			
 
 			<!-- copyright area -->				    
-		    <hr>
-		    <div class="footer">
-		    	<p>&copy; 2013 by arganzheng@gmail.com</p>
-		    </div>
+		    <%= partial :footer %>
+		    <!-- copyright area -->		
 		</div>
 
 		<!-- Load JS  -->
