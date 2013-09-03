@@ -18,6 +18,7 @@ class Blog < Sinatra::Base
 
   configure do
     set :documents_path, File.join(settings.root, "articles")
+    FileHelper.documents_path = settings.documents_path
 
     enable :logging
     file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
@@ -34,15 +35,16 @@ class Blog < Sinatra::Base
   meta_root_node = FileHelper.scan_for_article_meta(settings.documents_path)
   meta_root_node.print_tree
 
-    #get "/doc/#{article.slug}" do
-    #  erb :article, :locals => { :article => article }, :layout => :post
-    #end
-
-  #articles.sort_by! { |article| article.date }
-  #articles.reverse!
+  #get "/doc/#{article.slug}" do
+  #  erb :article, :locals => { :article => article }, :layout => :post
+  #end
 
   get '/' do
     erb :index, :layout => :'layout/layout'
+  end
+
+  get '/sidebar' do
+    erb :index, :locals => { :meta_root_node => meta_root_node }, :layout => :'layout/sidebar'
   end
 
   get %r{/doc/?([\w[_/-]?]+)?[/]?} do | page|

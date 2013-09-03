@@ -1,0 +1,21 @@
+<!-- left sidebar ared-->
+<div class="span3" >
+	<div class="well sidebar-nav" style="min-width: 150px;">
+
+		<ul class="nav nav-list"> 
+		<% meta_root_node.each { |node| %>
+	    
+			<% if(node.is_leaf?) %>
+			<li><a href="<%= url(node.content.slug) %>">
+			<%= node.content.title %> 
+	    	</a></li>
+	    	<% elsif (not node.content.nil?) %>
+			<li class="tree">
+			<a href="<%= url(node.content.slug) %>" class="tree-toggler"><span>▸</span><%= node.content.title %> 
+			</a></li>
+			<%  end  %>
+		<% } %>
+		</ul>
+	</div>
+</div>
+
